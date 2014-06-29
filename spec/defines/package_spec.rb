@@ -43,13 +43,22 @@ describe 'java::package' do
 
   describe 'oracle-java6-installer' do
     let(:params) { {:name => 'oracle-java6-installer'} }
-    let(:facts) { {:lsbdistid => 'Debian', :concat_basedir => '/path/to/dir'} }
 
     specify { should contain_concat__fragment('oracle-java6-installer.preseed').
       with_ensure('present').
       with_content(/oracle-java6-installer shared\/accepted-oracle-license-v1-1 select true/)
     }
     specify { should contain_package('oracle-java6-installer') }
+  end
+
+  describe 'oracle-java7-installer' do
+    let(:params) { {:name => 'oracle-java7-installer'} }
+
+    specify { should contain_concat__fragment('oracle-java7-installer.preseed').
+      with_ensure('present').
+      with_content(/oracle-java7-installer shared\/accepted-oracle-license-v1-1 select true/)
+    }
+    specify { should contain_package('oracle-java7-installer') }
   end
 
   describe 'should include apt::source for oracle installer on Debian' do

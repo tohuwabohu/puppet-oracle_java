@@ -30,7 +30,7 @@ define java::package(
 
   $preseed_content = $name ? {
     /^sun-java6-jdk$/          => template('java/sun-java6.preseed.erb'),
-    /^oracle-java6-installer$/ => "${name} shared/accepted-oracle-license-v1-1 select true",
+    /^oracle-java\d-installer$/ => "${name} shared/accepted-oracle-license-v1-1 select true",
     default                    => undef,
   }
   $preseed_ensure = empty($preseed_content) ? {
@@ -38,7 +38,7 @@ define java::package(
     default => absent,
   }
 
-  if $name =~ /oracle-java\d-installer/ {
+  if $name =~ /oracle-java\d-installer/ and $::lsbdistid =~ /^(Debian|Ubuntu)$/ {
     include java::apt
   }
 
