@@ -13,7 +13,7 @@
 class java {
 
   file { '/var/cache/debconf/sun-java6.preseed':
-    source => 'puppet:///modules/java6/sun-java6.preseed',
+    source => 'puppet:///modules/java/sun-java6.preseed',
     owner  => 'root',
     group  => 'root',
     mode   => '0644',
