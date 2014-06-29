@@ -7,5 +7,5 @@ license 'Apache License, Version 2.0'
 summary 'Manage the installation of Java packages'
 description ''
 
-dependency 'puppetlabs-concat', '>= 1.1.0 < 2.0.0'
+dependency 'puppetlabs/concat', '>= 1.1.0 < 2.0.0'
 dependency 'puppetlabs/stdlib', '4.x'
