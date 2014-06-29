@@ -1,6 +1,6 @@
 # == Class: java
 #
-# Manage the installation of Java version 6.
+# Manage the installation of Java versions.
 #
 # === Authors
 #
