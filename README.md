@@ -11,7 +11,15 @@ _Note: By using this module you will automatically accept the Oracle agreement t
 Example:
 
 ```
-class { 'java': }
+java::package { 'sun-java6-jdk': }
+```
+
+- or -
+
+```
+java::package { 'oracle-java6-installer':
+  ensure => latest,
+}
 ```
 
 ##Limitations

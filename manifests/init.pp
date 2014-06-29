@@ -11,18 +11,14 @@
 # Copyright 2013 Martin Meinhold, unless otherwise noted.
 #
 class java {
+  $debian_preseed_file = '/var/cache/debconf/java.preseed'
 
-  file { '/var/cache/debconf/sun-java6.preseed':
-    source => 'puppet:///modules/java/sun-java6.preseed',
-    owner  => 'root',
-    group  => 'root',
-    mode   => '0644',
+  concat { $debian_preseed_file:
+    ensure         => present,
+    owner          => 'root',
+    group          => 'root',
+    mode           => '0444',
+    force          => false,
+    ensure_newline => true,
   }
-
-  package { 'sun-java6-jdk':
-    ensure       => latest,
-    responsefile => '/var/cache/debconf/sun-java6.preseed',
-    require      => File['/var/cache/debconf/sun-java6.preseed']
-  }
-
 }
