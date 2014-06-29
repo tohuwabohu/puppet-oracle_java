@@ -1,0 +1,10 @@
+name 'tohuwabohu-java'
+version '1.0.0'
+source 'https://github.com/tohuwabohu/puppet-java.git'
+project_page 'https://github.com/tohuwabohu/puppet-java'
+author 'Martin Meinhold'
+license 'Apache License, Version 2.0'
+summary 'Manage the installation of Java packages'
+description ''
+
+dependency 'puppetlabs/stdlib', '4.x'
