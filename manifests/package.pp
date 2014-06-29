@@ -38,6 +38,10 @@ define java::package(
     default => absent,
   }
 
+  if $name =~ /oracle-java\d-installer/ {
+    include java::apt
+  }
+
   concat::fragment { "${name}.preseed":
     ensure  => $preseed_ensure,
     target  => $java::debian_preseed_file,

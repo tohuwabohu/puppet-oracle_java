@@ -1,5 +1,8 @@
 fixtures:
   repositories:
+    apt:
+      repo: "https://github.com/puppetlabs/puppetlabs-apt.git"
+      ref: "1.4.2"
     concat:
       repo: "https://github.com/puppetlabs/puppetlabs-concat.git"
       ref: "1.1.0"

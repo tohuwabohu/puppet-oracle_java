@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe 'java::package' do
   let(:title) { 'java-package' }
-  let(:facts) { {:concat_basedir => '/path/to/dir'} }
+  let(:facts) { {:lsbdistid => 'Debian', :concat_basedir => '/path/to/dir'} }
 
   describe 'by default' do
     let(:params) { {} }
@@ -43,11 +43,26 @@ describe 'java::package' do
 
   describe 'oracle-java6-installer' do
     let(:params) { {:name => 'oracle-java6-installer'} }
+    let(:facts) { {:lsbdistid => 'Debian', :concat_basedir => '/path/to/dir'} }
 
     specify { should contain_concat__fragment('oracle-java6-installer.preseed').
       with_ensure('present').
       with_content(/oracle-java6-installer shared\/accepted-oracle-license-v1-1 select true/)
     }
     specify { should contain_package('oracle-java6-installer') }
+  end
+
+  describe 'should include apt::source for oracle installer on Debian' do
+    let(:params) { {:name => 'oracle-java6-installer'} }
+    let(:facts) { {:lsbdistid => 'Debian', :concat_basedir => '/path/to/dir'} }
+
+    specify { should contain_apt__source('webupd8team').with_release('precise') }
+  end
+
+  describe 'should include apt::source for oracle installer on Ubuntu' do
+    let(:params) { {:name => 'oracle-java6-installer'} }
+    let(:facts) { {:lsbdistid => 'Ubuntu', :lsbdistcodename => 'trusty', :concat_basedir => '/path/to/dir'} }
+
+    specify { should contain_apt__source('webupd8team').with_release('trusty') }
   end
 end
