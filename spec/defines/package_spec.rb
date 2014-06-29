@@ -5,23 +5,29 @@ describe 'java::package' do
   let(:facts) { {:concat_basedir => '/path/to/dir'} }
 
   describe 'by default' do
-    let(:params) { {:name => 'example'} }
+    let(:params) { {} }
 
-    specify { should contain_concat__fragment('example.preseed').with_ensure('absent') }
-    specify { should contain_package('example').with_ensure('installed') }
+    specify { should contain_concat__fragment('java-package.preseed').with_ensure('absent') }
+    specify { should contain_package('java-package').with_ensure('installed') }
   end
 
   describe 'with ensure => latest' do
-    let(:params) { {:name => 'example', :ensure => 'latest'} }
+    let(:params) { {:ensure => 'latest'} }
 
-    specify { should contain_package('example').with_ensure('latest') }
+    specify { should contain_package('java-package').with_ensure('latest') }
+  end
+
+  describe 'with name => example' do
+    let(:params) { {:name => 'example'} }
+
+    specify { should contain_package('example') }
   end
 
   describe 'should not accept invalid ensure' do
-    let(:params) { {:name => 'example', :ensure => 'in va lid'} }
+    let(:params) { {:ensure => 'in va lid'} }
 
     specify do
-      expect { should contain_package('example') }.to raise_error(Puppet::Error, /ensure must be either/)
+      expect { should contain_package('java-package') }.to raise_error(Puppet::Error, /ensure must be either/)
     end
   end
 
