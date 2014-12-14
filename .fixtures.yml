@@ -2,13 +2,13 @@ fixtures:
   repositories:
     apt:
       repo: "https://github.com/puppetlabs/puppetlabs-apt.git"
-      ref: "1.4.2"
+      ref: "1.7.0"
     concat:
       repo: "https://github.com/puppetlabs/puppetlabs-concat.git"
-      ref: "1.1.0"
+      ref: "1.1.2"
     stdlib:
       repo: "https://github.com/puppetlabs/puppetlabs-stdlib.git"
-      ref: "4.1.0"
+      ref: "4.4.0"
   symlinks:
     java: "#{source_dir}"
 
