@@ -14,7 +14,7 @@ Example:
 java::package { 'sun-java6-jdk': }
 ```
 
-- or -
+- or
 
 ```
 java::package { 'oracle-java6-installer':
