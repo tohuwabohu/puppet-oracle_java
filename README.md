@@ -47,5 +47,6 @@ gem install bundler
 bundle install --path vendor
 
 bundle exec rake spec
-bundle exec rspec spec/acceptance
+bundle exec rake beaker
 ```
+(note: use `RS_PROVISION=no` and `RS_DESTROY=no` to control beaker default behaviour)
