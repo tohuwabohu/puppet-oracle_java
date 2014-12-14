@@ -18,7 +18,7 @@ class java {
     owner          => 'root',
     group          => 'root',
     mode           => '0444',
-    force          => false,
+    force          => true,
     ensure_newline => true,
   }
 }
