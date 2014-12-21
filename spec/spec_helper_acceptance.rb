@@ -19,9 +19,9 @@ RSpec.configure do |c|
       copy_module_to(host, :source => proj_root, :module_name => 'java', :ignore_list => ignore_list)
 
       # Install dependencies
+      on host, puppet('module', 'install', 'puppetlabs-stdlib', '--version 4.4.0')
       on host, puppet('module', 'install', 'puppetlabs-apt', '--version 1.7.0')
       on host, puppet('module', 'install', 'puppetlabs-concat', '--version 1.1.2')
-      on host, puppet('module', 'install', 'puppetlabs-stdlib', '--version 4.4.0')
     end
   end
 end
