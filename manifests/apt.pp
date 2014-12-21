@@ -15,7 +15,7 @@ class oracle_java::apt (
   $key,
   $key_server,
 ) {
-  apt::source { 'webupd8team':
+  apt::source { 'webupd8team-java':
     location    => 'http://ppa.launchpad.net/webupd8team/java/ubuntu',
     release     => $release,
     repos       => 'main',
