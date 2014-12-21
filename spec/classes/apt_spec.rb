@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe 'oracle_java::apt' do
   let(:title) { 'oracle_java::apt' }
-  let(:apt_source) { 'webupd8team' }
+  let(:apt_source) { 'webupd8team-java' }
 
   describe 'on Debian' do
     let(:facts) { {:lsbdistid => 'Debian'} }
