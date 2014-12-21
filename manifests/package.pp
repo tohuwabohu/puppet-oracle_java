@@ -30,6 +30,11 @@ define java::package (
   include java
   require java::apt
 
+  $preseed_ensure = $ensure ? {
+    absent  => absent,
+    default => present,
+  }
+
   concat::fragment { "${title}.preseed":
     ensure  => $preseed_ensure,
     target  => $java::debian_preseed_file,
