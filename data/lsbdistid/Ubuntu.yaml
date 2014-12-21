@@ -1,2 +1,2 @@
 ---
-java::apt::release: "%{::lsbdistcodename}"
+oracle_java::apt::release: "%{::lsbdistcodename}"

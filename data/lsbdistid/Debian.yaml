@@ -1,2 +1,2 @@
 ---
-java::apt::release: precise
+oracle_java::apt::release: precise

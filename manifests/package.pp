@@ -19,11 +19,11 @@ define oracle_java::package (
   $ensure = installed,
 ) {
   if $ensure !~ /present|installed|latest|^[.+_0-9a-zA-Z:-]+$/ {
-    fail("Java::Package[${title}]: ensure must be either present, installed, latest or a version number, got '${ensure}'")
+    fail("Oracle_Java::Package[${title}]: ensure must be either present, installed, latest or a version number, got '${ensure}'")
   }
 
   if $name !~ /^oracle-java\d-installer$/ {
-    warning("Java::Package[${title}]: only Oracle installer packages supported, package '${title}' may not work as expeced")
+    warning("Oracle_Java::Package[${title}]: only Oracle installer packages supported, package '${title}' may not work as expeced")
   }
 
   include oracle_java

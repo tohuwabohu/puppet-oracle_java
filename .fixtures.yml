@@ -13,5 +13,5 @@ fixtures:
       repo: "https://github.com/puppetlabs/puppetlabs-stdlib.git"
       ref: "4.4.0"
   symlinks:
-    java: "#{source_dir}"
+    oracle_java: "#{source_dir}"
 
