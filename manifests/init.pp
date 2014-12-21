@@ -1,4 +1,4 @@
-# == Class: java
+# == Class: oracle_java
 #
 # Manage the installation of Java versions.
 #
@@ -10,7 +10,7 @@
 #
 # Copyright 2013 Martin Meinhold, unless otherwise noted.
 #
-class java (
+class oracle_java (
   $preseed_file
 ) {
   concat { $preseed_file:

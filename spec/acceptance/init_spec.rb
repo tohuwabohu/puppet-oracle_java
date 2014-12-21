@@ -8,7 +8,7 @@ describe 'by default' do
         'oracle-java7-installer',
       ]
 
-      java::package { $packages:
+      oracle_java::package { $packages:
         ensure => installed,
       }
     EOS

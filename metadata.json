@@ -1,17 +1,17 @@
 {
-    "name": "tohuwabohu-java",
+    "name": "tohuwabohu-oracle_java",
     "version": "1.0.0",
     "author": "Martin Meinhold",
     "license": "Apache License, Version 2.0",
-    "summary": "Manage the installation of Java packages",
-    "source": "https://github.com/tohuwabohu/puppet-java.git",
-    "project_page": "https://github.com/tohuwabohu/puppet-java",
-    "issues_url": "https://github.com/tohuwabohu/puppet-java/issues",
-    "tags": [ "java", "jdk", "jre" ],
+    "summary": "Manage the installation of Oracle Java packages for Debian-based systems",
+    "source": "https://github.com/tohuwabohu/puppet-oracle_java.git",
+    "project_page": "https://github.com/tohuwabohu/puppet-oracle_java",
+    "issues_url": "https://github.com/tohuwabohu/puppet-oracle_java/issues",
+    "tags": [ "java", "jdk", "jre", "oracle" ],
     "operatingsystem_support": [
         {
             "operatingsystem": "Debian",
-            "operatingsystemrelease": [ "6", "7" ]
+            "operatingsystemrelease": [ "7" ]
         }
     ],
     "requirements": [

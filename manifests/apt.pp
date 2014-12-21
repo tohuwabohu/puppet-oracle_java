@@ -1,4 +1,4 @@
-# == Class: java::apt
+# == Class: oracle_java::apt
 #
 # Manage the APT repository than contains Java packages.
 #
@@ -10,7 +10,7 @@
 #
 # Copyright 2013 Martin Meinhold, unless otherwise noted.
 #
-class java::apt (
+class oracle_java::apt (
   $release,
   $key,
   $key_server,

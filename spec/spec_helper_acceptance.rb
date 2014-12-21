@@ -16,7 +16,7 @@ RSpec.configure do |c|
   c.before :suite do
     hosts.each do |host|
       # Install module
-      copy_module_to(host, :source => proj_root, :module_name => 'java', :ignore_list => ignore_list)
+      copy_module_to(host, :source => proj_root, :module_name => 'oracle_java', :ignore_list => ignore_list)
 
       # Install dependencies
       on host, puppet('module', 'install', 'puppetlabs-stdlib', '--version 4.4.0')

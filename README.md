@@ -1,8 +1,8 @@
-#java
+#oracle_java
 
 ##Overview
 
-Install one or multiple Java packages.
+Install one or multiple Oracle Java packages on Debian-based systems.
 
 ##Usage
 
@@ -11,7 +11,7 @@ _Note: By using this module you will automatically accept the Oracle agreement t
 Example:
 
 ```
-java::package { 'sun-java6-jdk': }
+java::package { 'oracle-java6-installer': }
 ```
 
 - or
@@ -26,9 +26,9 @@ java::package { 'oracle-java6-installer':
 
 The module has been tested on the following operating systems. Testing and patches for other platforms are welcome.
 
-* Debian Linux 6.0 (Squeeze)
+* Debian Linux 7.0
 
-[![Build Status](https://travis-ci.org/tohuwabohu/puppet-java.png?branch=master)](https://travis-ci.org/tohuwabohu/puppet-java)
+[![Build Status](https://travis-ci.org/tohuwabohu/puppet-oracle_java.png?branch=master)](https://travis-ci.org/tohuwabohu/puppet-oracle_java)
 
 ##Contributing
 

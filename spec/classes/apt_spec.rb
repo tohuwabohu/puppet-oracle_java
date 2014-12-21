@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe 'java::apt' do
-  let(:title) { 'java::apt' }
+describe 'oracle_java::apt' do
+  let(:title) { 'oracle_java::apt' }
   let(:apt_source) { 'webupd8team' }
 
   describe 'on Debian' do

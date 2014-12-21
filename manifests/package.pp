@@ -1,4 +1,4 @@
-# == Define: java::package
+# == Define: oracle_java::package
 #
 # Manage Oracle Java packages.
 #
@@ -15,7 +15,7 @@
 #
 # Copyright 2013 Martin Meinhold, unless otherwise noted.
 #
-define java::package (
+define oracle_java::package (
   $ensure = installed,
 ) {
   if $ensure !~ /present|installed|latest|^[.+_0-9a-zA-Z:-]+$/ {
@@ -26,8 +26,8 @@ define java::package (
     warning("Java::Package[${title}]: only Oracle installer packages supported, package '${title}' may not work as expeced")
   }
 
-  include java
-  require java::apt
+  include oracle_java
+  require oracle_java::apt
 
   $preseed_ensure = $ensure ? {
     absent  => absent,
@@ -36,13 +36,13 @@ define java::package (
 
   concat::fragment { "${title}.preseed":
     ensure  => $preseed_ensure,
-    target  => $java::preseed_file,
+    target  => $oracle_java::preseed_file,
     content => "${title} shared/accepted-oracle-license-v1-1 select true",
   }
 
   package { $title:
     ensure       => $ensure,
-    responsefile => $java::preseed_file,
-    require      => Concat[$java::preseed_file],
+    responsefile => $oracle_java::preseed_file,
+    require      => Concat[$oracle_java::preseed_file],
   }
 }

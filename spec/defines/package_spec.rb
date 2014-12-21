@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'java::package' do
+describe 'oracle_java::package' do
   let(:title) { 'oracle-java7-installer' }
   let(:facts) { {:lsbdistid => 'Debian', :concat_basedir => '/path/to/dir'} }
 
@@ -18,7 +18,7 @@ describe 'java::package' do
     let(:params) { {:ensure => 'in va lid'} }
 
     specify do
-      expect { should contain_package('java-package') }.to raise_error(Puppet::Error, /ensure must be either/)
+      expect { should contain_package('oracle-java7-installer') }.to raise_error(Puppet::Error, /ensure must be either/)
     end
   end
 

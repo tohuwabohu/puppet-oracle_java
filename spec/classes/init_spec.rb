@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe 'java' do
-  let(:title) { 'java' }
+describe 'oracle_java' do
+  let(:title) { 'oracle_java' }
   let(:facts) { {:concat_basedir => '/path/to/dir'} }
 
   describe 'by default' do
