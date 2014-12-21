@@ -3,7 +3,12 @@ require 'spec_helper_acceptance'
 describe 'by default' do
   specify 'should provision with no errors' do
     pp = <<-EOS
-      java::package { 'oracle-java7-installer':
+      $packages = [
+        'oracle-java6-installer',
+        'oracle-java7-installer',
+      ]
+
+      java::package { $packages:
         ensure => installed,
       }
     EOS

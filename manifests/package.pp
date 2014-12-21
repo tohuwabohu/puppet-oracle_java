@@ -1,14 +1,11 @@
 # == Define: java::package
 #
-# Install a certain Java package.
+# Manage Oracle Java packages.
 #
 # === Parameters
 #
-# [*name*]
-#   Set the package name.
-#
 # [*ensure*]
-#   Set state the package should be in.
+#   Set state the package should be in. Can be either `present`, `installed`, `absent` or a version number.
 #
 # === Authors
 #
@@ -18,7 +15,7 @@
 #
 # Copyright 2013 Martin Meinhold, unless otherwise noted.
 #
-define java::package(
+define java::package (
   $ensure = installed,
 ) {
 
@@ -26,31 +23,20 @@ define java::package(
     fail("Java::Package[${title}]: ensure must be either present, installed, latest or a version number, got '${ensure}'")
   }
 
+  if $name !~ /^oracle-java\d-installer$/ {
+    warning("Java::Package[${title}]: only Oracle installer packages supported, package '${title}' may not work as expeced")
+  }
+
   include java
+  require java::apt
 
-  $preseed_content = $name ? {
-    /^sun-java6-jdk$/          => template('java/sun-java6.preseed.erb'),
-    /^oracle-java\d-installer$/ => "${name} shared/accepted-oracle-license-v1-1 select true",
-    default                    => undef,
-  }
-  $preseed_ensure = empty($preseed_content) ? {
-    false   => present,
-    default => absent,
-  }
-
-  if $name =~ /oracle-java\d-installer/ and $::lsbdistid =~ /^(Debian|Ubuntu)$/ {
-    class { 'java::apt':
-      before => Package[$name],
-    }
-  }
-
-  concat::fragment { "${name}.preseed":
+  concat::fragment { "${title}.preseed":
     ensure  => $preseed_ensure,
     target  => $java::debian_preseed_file,
-    content => $preseed_content,
+    content => "${title} shared/accepted-oracle-license-v1-1 select true",
   }
 
-  package { $name:
+  package { $title:
     ensure       => $ensure,
     responsefile => $java::debian_preseed_file,
     require      => Concat[$java::debian_preseed_file]
