@@ -39,7 +39,9 @@ define java::package(
   }
 
   if $name =~ /oracle-java\d-installer/ and $::lsbdistid =~ /^(Debian|Ubuntu)$/ {
-    include java::apt
+    class { 'java::apt':
+      before => Package[$name],
+    }
   }
 
   concat::fragment { "${name}.preseed":

@@ -3,7 +3,9 @@ require 'spec_helper_acceptance'
 describe 'by default' do
   specify 'should provision with no errors' do
     pp = <<-EOS
-      class { 'java': }
+      java::package { 'oracle-java7-installer':
+        ensure => installed,
+      }
     EOS
 
     # Run it twice and test for idempotency
