@@ -13,7 +13,6 @@
 class java (
   $preseed_file
 ) {
-
   concat { $preseed_file:
     ensure         => present,
     owner          => 'root',

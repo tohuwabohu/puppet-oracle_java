@@ -10,18 +10,17 @@
 #
 # Copyright 2013 Martin Meinhold, unless otherwise noted.
 #
-class java::apt {
-  $apt_release = $::lsbdistid ? {
-    'Debian' => 'precise',
-    default  => $::lsbdistcodename,
-  }
-
+class java::apt (
+  $release,
+  $key,
+  $key_server,
+) {
   apt::source { 'webupd8team':
     location    => 'http://ppa.launchpad.net/webupd8team/java/ubuntu',
-    release     => $apt_release,
+    release     => $release,
     repos       => 'main',
-    key         => 'C2518248EEA14886',
-    key_server  => 'keyserver.ubuntu.com',
+    key         => $key,
+    key_server  => $key_server,
     include_src => false,
   }
 }

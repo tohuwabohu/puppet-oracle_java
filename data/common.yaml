@@ -1,2 +1,5 @@
 ---
 java::preseed_file: /var/cache/debconf/java.preseed
+
+java::apt::key: C2518248EEA14886
+java::apt::key_server: keyserver.ubuntu.com

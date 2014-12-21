@@ -1,0 +1,4 @@
+---
+:hierarchy:
+- lsbdistid/%{::lsbdistid}
+- common

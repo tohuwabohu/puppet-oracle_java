@@ -18,7 +18,6 @@
 define java::package (
   $ensure = installed,
 ) {
-
   if $ensure !~ /present|installed|latest|^[.+_0-9a-zA-Z:-]+$/ {
     fail("Java::Package[${title}]: ensure must be either present, installed, latest or a version number, got '${ensure}'")
   }
