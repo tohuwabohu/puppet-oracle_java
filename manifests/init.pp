@@ -10,10 +10,11 @@
 #
 # Copyright 2013 Martin Meinhold, unless otherwise noted.
 #
-class java {
-  $debian_preseed_file = '/var/cache/debconf/java.preseed'
+class java (
+  $preseed_file
+) {
 
-  concat { $debian_preseed_file:
+  concat { $preseed_file:
     ensure         => present,
     owner          => 'root',
     group          => 'root',

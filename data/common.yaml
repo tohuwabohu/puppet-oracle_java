@@ -1,0 +1,2 @@
+---
+java::preseed_file: /var/cache/debconf/java.preseed

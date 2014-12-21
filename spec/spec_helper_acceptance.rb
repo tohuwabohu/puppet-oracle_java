@@ -22,6 +22,7 @@ RSpec.configure do |c|
       on host, puppet('module', 'install', 'puppetlabs-stdlib', '--version 4.4.0')
       on host, puppet('module', 'install', 'puppetlabs-apt', '--version 1.7.0')
       on host, puppet('module', 'install', 'puppetlabs-concat', '--version 1.1.2')
+      on host, puppet('module', 'install', 'ripienaar-module_data', '--version 0.0.3')
     end
   end
 end

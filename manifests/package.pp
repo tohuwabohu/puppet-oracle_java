@@ -37,13 +37,13 @@ define java::package (
 
   concat::fragment { "${title}.preseed":
     ensure  => $preseed_ensure,
-    target  => $java::debian_preseed_file,
+    target  => $java::preseed_file,
     content => "${title} shared/accepted-oracle-license-v1-1 select true",
   }
 
   package { $title:
     ensure       => $ensure,
-    responsefile => $java::debian_preseed_file,
-    require      => Concat[$java::debian_preseed_file]
+    responsefile => $java::preseed_file,
+    require      => Concat[$java::preseed_file],
   }
 }
