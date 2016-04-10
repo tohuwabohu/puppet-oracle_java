@@ -1,13 +1,16 @@
 HOSTS:
-  debian-76-64:
+  debian-8-64:
     roles:
       - master
-    platform: debian-7-amd64
-    hypervisor: vagrant
-    box: puppetlabs/debian-7.6-64-puppet
-    box_url: https://vagrantcloud.com/puppetlabs/boxes/debian-7.6-64-puppet
+    platform: debian-8-amd64
+    hypervisor: docker
+    image: debian:8
+    docker_preserve_image: true
+    docker_image_commands:
+      - 'apt-get update'
+      - 'apt-get -qqy install wget'
 
 CONFIG:
+  type: foss
   log_level: info
   trace_limit: 100
-  type: git
