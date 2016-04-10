@@ -1,5 +1,0 @@
----
-oracle_java::preseed_file: /var/cache/debconf/java.preseed
-
-oracle_java::apt::key: C2518248EEA14886
-oracle_java::apt::key_server: keyserver.ubuntu.com

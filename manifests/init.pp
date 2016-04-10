@@ -11,8 +11,8 @@
 # Copyright 2013 Martin Meinhold, unless otherwise noted.
 #
 class oracle_java (
-  $preseed_file
-) {
+  $preseed_file = $oracle_java::params::preseed_file,
+) inherits oracle_java::params {
   concat { $preseed_file:
     ensure         => present,
     owner          => 'root',

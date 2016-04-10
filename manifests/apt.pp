@@ -11,10 +11,10 @@
 # Copyright 2013 Martin Meinhold, unless otherwise noted.
 #
 class oracle_java::apt (
-  $release,
-  $key,
-  $key_server,
-) {
+  $release    = $oracle_java::params::apt_release,
+  $key        = $oracle_java::params::apt_key,
+  $key_server = $oracle_java::params::apt_key_server,
+) inherits oracle_java::params {
   apt::source { 'webupd8team-java':
     location    => 'http://ppa.launchpad.net/webupd8team/java/ubuntu',
     release     => $release,
