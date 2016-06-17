@@ -16,11 +16,12 @@ class oracle_java::apt (
   $key_server = $oracle_java::params::apt_key_server,
 ) inherits oracle_java::params {
   apt::source { 'webupd8team-java':
-    location    => 'http://ppa.launchpad.net/webupd8team/java/ubuntu',
-    release     => $release,
-    repos       => 'main',
-    key         => $key,
-    key_server  => $key_server,
-    include_src => false,
+    location   => 'http://ppa.launchpad.net/webupd8team/java/ubuntu',
+    release    => $release,
+    repos      => 'main',
+    key        => {
+      'id'     => $key,
+      'server' => $key_server,
+    },
   }
 }
